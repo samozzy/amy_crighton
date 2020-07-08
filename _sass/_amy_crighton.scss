@@ -1,0 +1,66 @@
+
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap');
+
+// Colour Palette
+$ac-color: (
+	"heliotrope-gray": rgba(157, 140, 161, 1), 	//primary
+	"beau-blue": rgba(180, 212, 238, 1),		//secondary
+	"glossy-grape": rgba(153, 147, 178, 1), 	//info
+	"maximum-blue": rgba(167, 171, 221, 1), 	//background 
+	"old-lavender": rgba(129, 113, 122, 1),		//body type 
+);
+
+$primary: map-get($ac-color, "heliotrope-gray");
+$secondary: map-get($ac-color, "beau-blue");
+$body-color: darken(map-get($ac-color, "old-lavender"), 10%);
+$body-bg: lighten(map-get($ac-color, "maximum-blue"), 15%);
+.bg-primary {
+	color: darken($body-color, 20%);
+}
+.bg-secondary {
+	background-color: darken($secondary, 20%);
+}
+.bg-dark {
+	color: lighten(map-get($ac-color, "maximum-blue"), 10%);
+}
+
+html {
+	scroll-behavior: smooth;
+	@extend .h-100;
+}
+body {
+	@extend .d-flex, .flex-column, .h-100;
+	font-family: 'Comic Sans MS' !important;
+}
+
+.parallax {
+	min-height: 10rem;
+  	// opacity: 0.7;
+  	background-blend-mode: soft-light;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.parallax-caption {
+		@extend .my-auto, .semi-trans, .text-center, .font-weight-bold;
+	}
+}
+.section-caption {
+	@extend .mt-4, .semi-trans, .shadow-lg, .display-4, .font-weight-bold, .p-2;
+	width: fit-content;
+}
+
+.full-column {
+	@extend .col-12, .col-md-8, .offset-md-2;
+}
+.semi-trans {
+	opacity: 0.85;
+}
+.fixed-nav {
+	position: fixed !important;
+	top: 2rem;
+	right: 2rem;
+	z-index: 2000;
+	@extend .text-right;
+}
