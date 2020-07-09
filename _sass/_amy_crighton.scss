@@ -1,6 +1,6 @@
 
 // Font
-@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 
 // Colour Palette
 $ac-color: (
@@ -31,7 +31,13 @@ html {
 }
 body {
 	@extend .d-flex, .flex-column, .h-100;
-	font-family: 'Comic Sans MS' !important;
+	font-family: 'Raleway', Helvetica, Arial, sans-serif !important;
+}
+h1, .h1 {
+	weight: 900;
+}
+h2, .h2 {
+	weight: 700;
 }
 
 .parallax {
@@ -46,9 +52,11 @@ body {
 		@extend .my-auto, .semi-trans, .text-center, .font-weight-bold;
 	}
 }
+.section-heading {
+	letter-spacing: 1.5rem;
+}
 .section-caption {
-	@extend .mt-4, .semi-trans, .shadow-lg, .display-4, .font-weight-bold, .p-2;
-	width: fit-content;
+	@extend .mx-0, .display-4, .py-2, .px-4, .semi-trans, .w-100;
 }
 
 .full-column {

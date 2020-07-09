@@ -41,49 +41,23 @@
 		</div>
 	</div>
 	<div class="container-fluid" id="shows">
-		<div class="row">
+		<div class="row section-heading">
 			<div class="col py-4">
 				<h1 class="text-center">SHOWS</h2>
 			</div>
 		</div>
+		{% assign shows = site.shows | show_date_sort | reverse %}
+		{% for show in shows %}
 		<div class="row bg-primary">
-			<div class="col-3">
-				<p class="h2 my-4 text-center">October 2018<br>
-					<span class="h3">The Nottingham New Theatre</span></p>
-				<img class="img-responsive shadow w-100" src="/static/img/girl_poster.jpg" alt="A Girl Is A Half-Formed Thing Poster">
-				<strong>Creative Team</strong>
-				<ul>
-					<li>Producer</li>
-					<li>Technical Director</li>
-					<li>Lighting Designer</li>
-					<li>Sound Designer</li>
-				</ul>
-			</div>
-			<div class="col parallax" style="background-image:url(/static/img/girl_01.jpg);">
-				<h2 class="section-caption bg-primary"><em>'A Girl Is A Half-Formed Thing'</em> by Eimear McBride</h2>
+			<div class="col parallax vh-100 p-0" style="background-image:url({{ show.lead_image }});">
+				<h2 class="section-caption bg-primary"><span class="font-weight-bold">{{ show.title | upcase }}</span> {% if show.playwright %}by {{ show.playwright }}{% endif %}</h2>
 			</div>
 		</div>
-		<div class="row parallax bg-dark">
-			<div class="col parallax" style="background-image:url(/static/img/salome_01.jpg);">
-				<h2 class="section-caption bg-dark"><em>'Salomé'</em> by Oscar Wilde</h2>
-			</div>
-			<div class="col-3">
-				<p class="h2 my-4 text-center">May 2018<br>
-					<span class="h3">The Nottingham New Theatre</span></p>
-				<img class="img-responsive shadow w-100" src="/static/img/salome_poster.jpg" alt="Salome Poster">
-				<strong>Creative Team</strong>
-				<ul>
-					<li>Producer</li>
-					<li>Technical Director</li>
-					<li>Lighting Designer</li>
-					<li>Sound Designer</li>
-				</ul>
-			</div>
-		</div>
+		{% endfor %}
 	</div>
 	<div class="container-fluid" id="contact">
 		<div class="row">
-			<div class="full-column">
+			<div class="full-column section-heading">
 				<h1 class='text-center my-4'>CONTACT</h1>
 			</div>
 		</div>

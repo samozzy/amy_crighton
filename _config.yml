@@ -42,6 +42,9 @@ collections:
   content:
     output: true
     permalink: :path/
+  shows:
+    output: true 
+    permalink: /shows/:path
 permalink: pretty 
 
 defaults:
