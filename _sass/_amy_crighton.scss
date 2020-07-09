@@ -33,29 +33,35 @@ body {
 	@extend .d-flex, .flex-column, .h-100;
 	font-family: 'Raleway', Helvetica, Arial, sans-serif !important;
 }
-h1, .h1 {
-	weight: 900;
-}
-h2, .h2 {
-	weight: 700;
-}
 
 .parallax {
 	min-height: 10rem;
-  	// opacity: 0.7;
   	background-blend-mode: soft-light;
 	background-attachment: fixed;
+	background-position-x: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	@extend .vh-100;
 
-	.parallax-caption {
-		@extend .my-auto, .semi-trans, .text-center, .font-weight-bold;
+}
+.site-title {
+	@extend .my-auto, .semi-trans, .text-center, .font-weight-bold;
+	h1 {
+		font-weight: 900 !important;
+		letter-spacing: 0.8rem;
 	}
 }
 .section-heading {
-	letter-spacing: 1.5rem;
+	letter-spacing: 1rem;
+	h1 {
+		@extend .display-4;
+		font-weight: 800 !important;
+	}
+	@media only screen and (min-width: map-get($grid-breakpoints, "md")) {
+	  letter-spacing: 1.5rem;
+	}
 }
-.section-caption {
+.parallax-caption {
 	@extend .mx-0, .display-4, .py-2, .px-4, .semi-trans, .w-100;
 }
 

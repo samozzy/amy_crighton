@@ -34,7 +34,7 @@
   	</nav>
     <div class="container-fluid" id="top">
 		<div class="row parallax bg-secondary vh-100" style="background-image:url(/static/img/amy.jpg); background-position: top;">
-			<div class="full-column parallax-caption">
+			<div class="full-column site-title">
 				<h1 class="display-1 bg-primary">{{ site.title | upcase }}</h1>
 				<p class="lead bg-primary">{{ site.description }}</p>
 			</div>
@@ -49,8 +49,8 @@
 		{% assign shows = site.shows | show_date_sort | reverse %}
 		{% for show in shows %}
 		<div class="row bg-primary">
-			<div class="col parallax vh-100 p-0" style="background-image:url({{ show.lead_image }});">
-				<h2 class="section-caption bg-primary"><span class="font-weight-bold">{{ show.title | upcase }}</span> {% if show.playwright %}by {{ show.playwright }}{% endif %}</h2>
+			<div class="col parallax p-0" style="background-image:url({{ show.lead_image }});">
+				<h2 class="parallax-caption bg-primary"><span class="font-weight-bold">{{ show.title | upcase }}</span> {% if show.playwright %}by {{ show.playwright }}{% endif %}</h2>
 			</div>
 		</div>
 		{% endfor %}
