@@ -48,8 +48,11 @@ body {
 	@extend .my-auto, .semi-trans, .text-center, .font-weight-bold;
 	h1 {
 		font-weight: 900 !important;
-		letter-spacing: 0.8rem;
 		background: $primary;
+		letter-spacing: 0.2rem;
+		@media only screen and (min-width: map-get($grid-breakpoints, "md")) {
+			letter-spacing: 0.8rem;
+		}
 	}
 }
 .section-heading {
@@ -74,8 +77,12 @@ body {
 }
 .fixed-nav {
 	position: fixed !important;
-	top: 2rem;
-	right: 2rem;
+	top: 0.5rem;
+	right: 0.5rem;
+	@media only screen and (min-width: map-get($grid-breakpoints, "md")) {
+		top: 2rem;
+		right: 2rem;
+	}
 	z-index: 2000;
 	@extend .text-right;
 }
