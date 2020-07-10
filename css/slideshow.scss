@@ -1,0 +1,31 @@
+---
+---
+
+{% for show in site.shows %}
+	{% assign duration = show.images | size | times: 12 %}
+
+	.slideshow.slideshow-{{show.title|slugify}} {
+		-webkit-backface-visibility: hidden;
+	    -webkit-animation: imageAnimation-{{ forloop.index }} {{ duration }}s linear infinite 0s;
+	    -moz-animation: imageAnimation-{{ forloop.index }} {{ duration }}s linear infinite 0s;
+	    -o-animation: imageAnimation-{{ forloop.index }} {{ duration }}s linear infinite 0s;
+	    -ms-animation: imageAnimation-{{ forloop.index }} {{ duration }}s linear infinite 0s;
+	    animation: imageAnimation-{{ forloop.index }} {{ duration }}s linear infinite 0s; 
+	}
+{% endfor %}
+
+{% for show in site.shows %}
+@keyframes imageAnimation-{{ forloop.index }} { 
+	0% { background-image: url({{ show.lead_image }});
+		 }
+	{% for image in show.images %}
+		{% assign numimages = show.images | size | times: 1.0 %}
+		{% assign percentage = forloop.index | times: 100.0 | divided_by: numimages  %}
+		{{ percentage }}% { background-image: url({{ image }}); }
+	{% endfor %}
+}
+{% endfor %}
+/* Show at least something when animations not supported */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

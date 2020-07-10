@@ -6,6 +6,11 @@ venue: The Nottingham New Theatre
 lead_image: /static/img/girl_01.jpg
 poster: /static/img/girl_poster.jpg
 
+images:
+  - /static/img/girl_02.jpg
+  - /static/img/girl_03.jpg
+  - /static/img/girl_04.jpg
+
 team:
   - role: Producer
     name: Josie Hayden
