@@ -53,3 +53,5 @@ defaults:
       type: content
     values:
       layout: default
+
+enable_slideshows: false 

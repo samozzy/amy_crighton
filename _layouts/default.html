@@ -6,7 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}?cachebust={{ site.time | date: "%Y%m%d%H%M"}}">
-	<link rel="stylesheet" href="{{ "/css/slideshow.css" | prepend: site.baseurl }}?cachebust={{ site.time | date: "%Y%m%d%H%M"}}">
+	{% if site.enable_slideshows %}
+		<link rel="stylesheet" href="{{ "/css/slideshow.css" | prepend: site.baseurl }}?cachebust={{ site.time | date: "%Y%m%d%H%M"}}">
+	{% endif %}
 	<!-- FontAwesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
@@ -50,7 +52,7 @@
 		{% assign shows = site.shows | show_date_sort | reverse %}
 		{% for show in shows %}
 		<div class="row bg-primary">
-			<div class="col parallax {% if show.images %}slideshow slideshow-{{ show.title | slugify }}{% endif %} p-0" style="background-image:url({{ show.lead_image }});">
+			<div class="col parallax p-0 {% if site.enable_slideshows and show.images and show.images.size >= 2 %}slideshow slideshow-{{ show.title | slugify }}"{% else %}" style="background-image:url({{ show.lead_image }});"{% endif %}>
 				<h2 class="parallax-caption bg-primary"><span class="font-weight-bold">{{ show.title | upcase }}</span> {% if show.playwright %}by {{ show.playwright }}{% endif %}</h2>
 			</div>
 		</div>
@@ -62,8 +64,8 @@
 				<h1 class='text-center my-4'>CONTACT</h1>
 			</div>
 		</div>
-		<div class="row">
-			<div class="full-column">
+		<div class="row bg-dark">
+			<div class="full-column p-4">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
