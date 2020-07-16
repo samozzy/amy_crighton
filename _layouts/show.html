@@ -3,24 +3,31 @@ layout: default
 ---
 
 <div class="container-fluid">
-	<div class="row bg-primary semi-trans">
+	<div class="row">
 		<div class="show-heading parallax" style="background-image: url({{ page.lead_image }});">
+			<a class="btn btn-primary rounded-0 text-dark btn-lg" role="button" href="/#{{ page.title | slugify }}"><i class="fa fa-fw fa-arrow-left fa-2x" aria-label="Back"></i></a>
 		</div>
 	</div>
 	<div class="row bg-primary">
 		<div class="col p-0">
 			<h1 class="show-title text-center"><span>{{ page.title }}</span> {% if page.playwright %}by {{ page.playwright }}{% endif %}</h1>
 			<hr class="w-25 mt-0">
-			<h2 class="text-center mb-3">{{ page.show_date }}<br>{{ page.venue }}</h2>
+			<h2 class="text-center mb-3">
+				{% if page.role %}
+				{{ page.role }}
+				<br>
+				{% endif %}
+				{{ page.venue }} {% if page.venue and page.show_date %}&mdash;{% endif %} {{ page.show_date }}
+			</h2>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-12 col-sm-4 col-xl-3 p-0">
+		<div class="col-12 col-md-4 col-xl-3 p-0">
 			<div class="row no-gutters"><!-- Poster and meta -->
-				<div class="col-6 col-sm-12 p-0">
+				<div class="col-12 col-sm-6 col-md-12 p-0">
 					<img class="img-fluid w-100" src="{{ page.poster }}" alt="{{ page.title }} Poster">
 				</div>
-				<div class="col-6 col-sm-12 p-3">
+				<div class="col-12 col-sm-6 col-md-12 p-3">
 					<h3>Production Team</h3>
 					{% if page.team %}
 						<dl class="show-team">
@@ -32,11 +39,68 @@ layout: default
 				</div>
 			</div><!-- Poster and meta -->
 		</div>
-		<div class="col-12 col-sm-8 col-xl-9 p-4">
+		<div class="col-12 col-md-8 col-xl-9 px-4 py-0 py-sm-4"><!-- Main content -->
+			{% assign content = page.content | strip_newlines %}
+			{% if content and content != empty and content != '' %}
 			{{ content | markdownify }}
+			{% if page.synopsis or page.reviews or page.images %}<hr class="w-25 mb-4">{% endif %}
+			{% endif %}
+			{% if page.synopsis or page.reviews %}
+				<div class="row">
+					{% if page.synopsis %}
+						<div class="col-lg">
+							<em>{{ page.synopsis | markdownify }}</em>
+						</div>
+					{% endif %}
+					{% if page.reviews %}
+						<div class="col-lg">
+							<h3>Reviews</h3>
+							{% for review in page.reviews %}
+								<i class="fa fa-fw fa-2x fa-quote-left" aria-hidden="true" aria-label="Quote icon"></i>
+								{{ review.quote }}
+								<p class="mt-0 font-weight-bold text-right">{% if review.link %}<a href="{{ review.link }}">{% endif %}{{ review.publisher }}{% if review.link %}</a>{% endif %}</p>
+							{% endfor %}
+						</div>
+					{% endif %}
+				</div>
+			{% endif %}
 			{% if page.images %}
 				<h3>Production Photography</h3>
 			{% endif %}
+		</div><!-- Main content -->
+	</div>
+	<div class="row section-heading bg-primary">
+		<div class="col py-4">
+			<h2 class="text-center font-weight-bold">OTHER SHOWS</h2>
+		</div>
+	</div>
+	<div class="row bg-primary">
+		<div class="col mb-4">
+			{% assign num_shows = site.shows.size | minus: 3 %}
+			{% assign num_listed = 0 %}
+			{% comment %} 3: two shown plus this one {% endcomment %}
+			<div class="card-deck">
+				{% assign shows = site.shows | show_date_sort %}
+				{% for show in shows %}
+					{% unless show.permalink == page.permalink %}
+						<div class="card show-card" style="background-image:url({{ show.lead_image }});">
+							<div class="card-body">
+								<a href="{{ show.permalink }}" class="text-dark" aria-label="{{ show.title }}">
+									<h3 class="show-title text-center">{{ show.title | upcase }}</h3>
+								</a>
+							</div>
+						</div>
+
+						{% assign num_listed = num_listed | plus: 1 %}
+						{% if num_listed >= 2 and num_shows > 1 %}{% break %}{% endif %}
+					{% endunless %}
+				{% endfor %}
+				{% if num_shows > 1 %}
+					<div class="card show-card bg-dark">
+						<div class="card-body"><h3 class="text-center">And {{ num_shows }} more...</h3></div>
+					</div>
+				{% endif %}
+			</div>
 		</div>
 	</div>
 </div>
