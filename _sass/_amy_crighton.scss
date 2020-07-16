@@ -68,7 +68,7 @@ body {
 		}
 	}
 	.card-body {
-		@extend .bg-primary, .semi-trans, .m-0, .p-0;
+		@extend .semi-trans, .m-0, .p-0;
 		&:hover {
 			opacity: 0.5;
 		}

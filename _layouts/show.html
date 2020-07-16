@@ -80,11 +80,11 @@ layout: default
 			{% assign num_listed = 0 %}
 			{% comment %} 3: two shown plus this one {% endcomment %}
 			<div class="card-deck">
-				{% assign shows = site.shows | show_date_sort %}
+				{% assign shows = site.shows | show_date_sort | reverse %}
 				{% for show in shows %}
 					{% unless show.permalink == page.permalink %}
 						<div class="card show-card" style="background-image:url({{ show.lead_image }});">
-							<div class="card-body">
+							<div class="card-body bg-primary">
 								<a href="{{ show.permalink }}" class="text-dark" aria-label="{{ show.title }}">
 									<h3 class="show-title text-center">{{ show.title | upcase }}</h3>
 								</a>
@@ -96,8 +96,12 @@ layout: default
 					{% endunless %}
 				{% endfor %}
 				{% if num_shows > 1 %}
-					<div class="card show-card bg-dark">
-						<div class="card-body"><h3 class="text-center">And {{ num_shows }} more...</h3></div>
+					<div class="card show-card more-shows bg-dark">
+						<div class="card-body">
+							<a href="/#shows">
+								<h3 class="text-center text-light show-title">{{ num_shows }} more...</h3>
+							</a>
+						</div>
 					</div>
 				{% endif %}
 			</div>
