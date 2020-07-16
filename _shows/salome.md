@@ -6,6 +6,7 @@ show_date: May 2017
 venue: The Nottingham New Theatre
 lead_image: /static/img/salome_01.jpg
 poster: /static/img/salome_poster.jpg
+role: Director
 
 team:
   - role: Producer

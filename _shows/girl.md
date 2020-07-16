@@ -6,6 +6,7 @@ show_date: October 2018
 venue: The Nottingham New Theatre
 lead_image: /static/img/girl_01.jpg
 poster: /static/img/girl_poster.jpg
+role: Director 
 
 images:
   - /static/img/girl_02.jpg
@@ -21,6 +22,21 @@ team:
     name: Emma Barber
   - role: Photography
     name: The Nottingham New Theatre
+
+reviews:
+  - publisher: Noises Off
+    link: https://www.nsdf.org.uk/noises-off/feeling-unfeeling
+    quote: There were moments, when the girl was lying in the forest and when she was looking up at the lake above her, which were purely beautiful.
+  - publisher: Impact Nottingham
+    link: https://impactnottingham.com/2018/11/a-girl-is-a-half-formed-thing-nnt/
+    quote: Definitely not one to see if you would like a laid-back and relaxing show, but for an intense and heart-wrenching performance that leaves you a little shaken, go and watch A Girl is a Half-Formed Thing.
+
+synopsis: |
+  'I met a man. I met a man. And I lay down. And slapped and cried and wined and dined. I met a man and many more and I didn’t know you at all.'
+
+  In religious, rural Ireland, a young girl takes us on a journey through her tumultuous life. Privy to her every thought as she lives through the experiences and traumas that will shape her forever.
+
+  Eimear McBride’s revolutionary experimental novel, transformed into an engaging play, explores what it is to love, lose and hurt, and to experience the world as a half-formed thing.
 
 ---
 
