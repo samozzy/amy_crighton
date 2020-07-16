@@ -1,0 +1,58 @@
+@charset "UTF-8";
+.slideshow.slideshow-dna {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-animation: imageAnimation-1 0s linear alternate infinite 0s;
+  -moz-animation: imageAnimation-1 0s linear alternate infinite 0s;
+  -o-animation: imageAnimation-1 0s linear alternate infinite 0s;
+  -ms-animation: imageAnimation-1 0s linear alternate infinite 0s;
+  animation: imageAnimation-1 0s linear alternate infinite 0s;
+}
+
+@keyframes imageAnimation-1 {}.slideshow.slideshow-a-girl-is-a-half-formed-thing {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-animation: imageAnimation-2 18s linear alternate infinite 0s;
+  -moz-animation: imageAnimation-2 18s linear alternate infinite 0s;
+  -o-animation: imageAnimation-2 18s linear alternate infinite 0s;
+  -ms-animation: imageAnimation-2 18s linear alternate infinite 0s;
+  animation: imageAnimation-2 18s linear alternate infinite 0s;
+}
+
+@keyframes imageAnimation-2 {
+  0% {
+    background-image: url(/static/img/girl_04.jpg);
+  }
+  33.333333333333336% {
+    background-image: url(/static/img/girl_02.jpg);
+  }
+  50.0% {
+    background-image: url(/static/img/girl_02.jpg);
+  }
+  66.66666666666667% {
+    background-image: url(/static/img/girl_03.jpg);
+  }
+  83.33333333333333% {
+    background-image: url(/static/img/girl_03.jpg);
+  }
+  100.0% {
+    background-image: url(/static/img/girl_04.jpg);
+  }
+}
+
+.slideshow.slideshow-salomé {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-animation: imageAnimation-3 0s linear alternate infinite 0s;
+  -moz-animation: imageAnimation-3 0s linear alternate infinite 0s;
+  -o-animation: imageAnimation-3 0s linear alternate infinite 0s;
+  -ms-animation: imageAnimation-3 0s linear alternate infinite 0s;
+  animation: imageAnimation-3 0s linear alternate infinite 0s;
+}
+
+@keyframes imageAnimation-3 {}/* Show at least something when animations not supported */
+.no-cssanimations .slideshow li {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=slideshow.css.map */
