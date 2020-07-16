@@ -49,6 +49,32 @@ body {
 	background-position-y: 35%;
 	@extend .w-100;
 }
+.show-card {
+	background-position-y: 20%;
+	background-position-x: center;
+	background-size: cover;
+	a {
+		min-height: 15rem !important;
+		@media only screen and (max-width: map-get($grid-breakpoints, "md")) {
+			min-height: 10rem !important;
+		}
+		@extend .h-100, .w-100, .p-4, .d-table, .btn;
+		.show-title {
+			font-weight: 400;
+		}
+		h3 {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+	.card-body {
+		@extend .bg-primary, .semi-trans, .m-0, .p-0;
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+}
+
 .site-title {
 	@extend .my-auto, .semi-trans, .text-center, .font-weight-bold;
 	h1 {
