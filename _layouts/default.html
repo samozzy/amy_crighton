@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 
-	<title>{{ title | default: site.title }}</title>
+	<title>{{ page.title | default: site.title }}</title>
   </head>
   <body>
 	<nav class="navbar navbar-light bg-primary fixed-nav">
@@ -24,57 +24,18 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav text-center">
 				<li class="nav-item">
-					<a class="nav-link" href="#top">Home</a>
+					<a class="nav-link" href="/#top">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#shows">Shows</a>
+					<a class="nav-link" href="/#shows">Shows</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#contact">Contact</a>
+					<a class="nav-link" href="/#contact">Contact</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
-	<div class="container-fluid" id="top">
-		<div class="row parallax bg-secondary vh-100" style="background-image:url(/static/img/amy.jpg); background-position: top;">
-			<div class="full-column site-title">
-				<h1 class="display-1 bg-primary">{{ site.title | upcase }}</h1>
-				<p class="lead bg-primary">{{ site.description }}</p>
-			</div>
-		</div>
-	</div>
-	<div class="container-fluid" id="shows">
-		<div class="row section-heading">
-			<div class="col py-4">
-				<h1 class="text-center">SHOWS</h2>
-			</div>
-		</div>
-		{% assign shows = site.shows | show_date_sort | reverse %}
-		{% for show in shows %}
-		<div class="row bg-primary">
-			<div class="col parallax p-0 {% if site.enable_slideshows and show.images and show.images.size >= 2 %}slideshow slideshow-{{ show.title | slugify }}"{% else %}" style="background-image:url({{ show.lead_image }});"{% endif %}>
-				<h2 class="parallax-caption bg-primary"><span class="font-weight-bold">{{ show.title | upcase }}</span> {% if show.playwright %}by {{ show.playwright }}{% endif %}</h2>
-			</div>
-		</div>
-		{% endfor %}
-	</div>
-	<div class="container-fluid" id="contact">
-		<div class="row">
-			<div class="full-column section-heading">
-				<h1 class='text-center my-4'>CONTACT</h1>
-			</div>
-		</div>
-		<div class="row bg-dark">
-			<div class="full-column p-4">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-		</div>
-	</div>
+	{{ content }} 
 	<div class="container-fluid mt-auto footer">
 		<div class="row bg-secondary">
 			<div class="col">
@@ -91,4 +52,3 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
 </html>
-

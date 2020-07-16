@@ -1,0 +1,42 @@
+---
+layout: default 
+---
+
+<div class="container-fluid">
+	<div class="row bg-primary semi-trans">
+		<div class="show-heading parallax" style="background-image: url({{ page.lead_image }});">
+		</div>
+	</div>
+	<div class="row bg-primary">
+		<div class="col p-0">
+			<h1 class="show-title text-center"><span>{{ page.title }}</span> {% if page.playwright %}by {{ page.playwright }}{% endif %}</h1>
+			<hr class="w-25 mt-0">
+			<h2 class="text-center mb-3">{{ page.show_date }}<br>{{ page.venue }}</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-sm-4 col-xl-3 p-0">
+			<div class="row no-gutters"><!-- Poster and meta -->
+				<div class="col-6 col-sm-12 p-0">
+					<img class="img-fluid w-100" src="{{ page.poster }}" alt="{{ page.title }} Poster">
+				</div>
+				<div class="col-6 col-sm-12 p-3">
+					<h3>Production Team</h3>
+					{% if page.team %}
+						<dl class="show-team">
+						{% for person in page.team %}
+							<dd>{{ person.role }} <span class="d-none d-lg-inline">&mdash; </span><strong class="ml-4 ml-lg-0 d-block d-lg-inline">{{ person.name }}</strong></dd>
+						{% endfor %}
+						</dl>
+					{% endif %}
+				</div>
+			</div><!-- Poster and meta -->
+		</div>
+		<div class="col-12 col-sm-8 col-xl-9 p-4">
+			{{ content | markdownify }}
+			{% if page.images %}
+				<h3>Production Photography</h3>
+			{% endif %}
+		</div>
+	</div>
+</div>
