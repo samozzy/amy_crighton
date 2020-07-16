@@ -47,7 +47,7 @@ collections:
     permalink: :path/
   shows:
     output: true 
-    permalink: /shows/:path
+    permalink: :path/
 permalink: pretty 
 
 defaults:
@@ -56,5 +56,9 @@ defaults:
       type: content
     values:
       layout: default
+  - scope: 
+      type: shows
+    values:
+      layout: show
 
 enable_slideshows: false 

@@ -1,5 +1,6 @@
 ---
 title: 'DNA'
+permalink: /dna/
 playwright: Dennis Kelly
 show_date: April 2019
 venue: Nottingham Lakeside Arts
