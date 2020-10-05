@@ -17,6 +17,12 @@ $body-color: darken(map-get($ac-color, "old-lavender"), 10%);
 $body-bg: lighten(map-get($ac-color, "maximum-blue"), 15%);
 .bg-primary {
 	color: darken($body-color, 20%);
+	a {
+		color: $body-color;
+		&:hover {
+			color: darken($body-color, 10%);
+		}
+	}
 }
 .bg-secondary {
 	background-color: darken($secondary, 20%);
@@ -35,11 +41,11 @@ body {
 }
 
 .parallax {
-	min-height: 10rem;
+	min-height: 10rem !important;
   	background-blend-mode: soft-light;
-	background-attachment: fixed;
 	background-position-x: center;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 	background-size: cover;
 	@extend .vh-100;
 }
@@ -58,7 +64,13 @@ body {
 		@media only screen and (max-width: map-get($grid-breakpoints, "md")) {
 			min-height: 10rem !important;
 		}
-		@extend .h-100, .w-100, .p-4, .d-table, .btn;
+		@media only screen and (max-width: map-get($grid-breakpoints, "lg")) {
+			h3 {
+				font-size: 2rem;
+				padding: 0 !important;
+			}
+		}
+		@extend .h-100, .w-100, .p-0, .p-md-4, .d-table, .btn;
 		.show-title {
 			font-weight: 400;
 		}
