@@ -44,11 +44,11 @@ sass:
 collections:
   content:
     output: true
-    permalink: :path/
+    permalink: :path/:slug/
   shows:
     output: true 
-    permalink: :path/
-permalink: pretty 
+    permalink: :title/
+# permalink: pretty 
 
 defaults:
   # Defaults for pages
